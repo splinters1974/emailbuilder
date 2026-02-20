@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proactive Outreach Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: Arial, Helvetica, sans-serif !important;
+        }
+        .font-arial { font-family: Arial, Helvetica, sans-serif !important; }
+        .gradient-bg { background: linear-gradient(135deg, #e30613 0%, #ff6b35 100%); }
+        .glass-effect { backdrop-filter: blur(12px); background: rgba(255, 255, 255, 0.95); }
+        .researching { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+        .slide-in { animation: slideIn 0.5s ease-out; }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .eon-red { color: #e30613; }
+        .bg-eon-red { background-color: #e30613; }
+        .border-eon-red { border-color: #e30613; }
+        .source-badge { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+        .web-source { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+        .news-source { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        .esg-source { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+        .email-content { font-family: Arial, Helvetica, sans-serif !important; line-height: 1.6; }
+        .email-content * { font-family: Arial, Helvetica, sans-serif !important; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen font-arial">
+    <!-- Header -->
+    <div class="gradient-bg text-white py-8 px-4 shadow-2xl relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-20"></div>
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="flex items-center justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="bg-white/20 p-2 rounded-lg">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h1 class="text-3xl font-bold tracking-tight font-arial">Proactive Outreach Generator</h1>
+                    </div>
+                    <p class="text-red-100 text-lg max-w-2xl font-arial">Powered by E.ON Energy intelligence — researching sustainability strategies and energy initiatives for hyper-personalised outreach</p>
+                </div>
+                <div class="hidden md:block text-right">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
+                        <div class="text-sm font-semibold font-arial">E.ON Energy Solutions</div>
+                        <div class="text-xs opacity-80 font-arial">Designing and building for sustainability at scale</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto p-4 md:p-8 space-y-6 font-arial">
+        <!-- Signature Configuration -->
+        <div class="glass-effect rounded-2xl shadow-xl p-6 border border-white/50">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl font-semibold text-gray-800 flex items-center gap-2 font-arial">
+                    <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                    </svg>
+                    Email Signature Configuration
+                </h2>
+                <span class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full font-arial">Applied to all emails</span>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="flex gap-4 mb-4">
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input type="radio" name="sigType" value="text" checked onchange="toggleSignatureType()" class="w-4 h-4 text-red-600">
+                        <span class="text-sm font-medium text-gray-700 font-arial">Text Signature</span>
+                    </label>
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input type="radio" name="sigType" value="html" onchange="toggleSignatureType()" class="w-4 h-4 text-red-600">
+                        <span class="text-sm font-medium text-gray-700 font-arial">HTML Signature</span>
+                    </label>
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input type="radio" name="sigType" value="image" onchange="toggleSignatureType()" class="w-4 h-4 text-red-600">
+                        <span class="text-sm font-medium text-gray-700 font-arial">Image Signature</span>
+                    </label>
+                </div>
+
+                <div id="textSigInput" class="space-y-3">
+                    <textarea id="signatureText" placeholder="Enter your signature (e.g., Best regards, John Smith, Energy Consultant, E.ON Energy, 01234 567890, john.smith@eonenergy.com)" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 font-arial text-sm"></textarea>
+                </div>
+
+                <div id="htmlSigInput" class="hidden space-y-3">
+                    <textarea id="signatureHtml" placeholder="<div style='font-family: Arial; color: #e30613;'><strong>John Smith</strong><br>Energy Consultant<br>E.ON Energy<br>01234 567890</div>" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 font-arial text-sm font-mono"></textarea>
+                    <p class="text-xs text-gray-500 font-arial">HTML signatures will be sanitised for email compatibility</p>
+                </div>
+
+                <div id="imageSigInput" class="hidden space-y-3">
+                    <div class="border-2 border-dashed border-red-300 rounded-xl p-6 text-center hover:border-red-500 transition-colors cursor-pointer bg-red-50/30" onclick="document.getElementById('sigImageUpload').click()">
+                        <input type="file" id="sigImageUpload" accept="image/*" class="hidden" onchange="handleSignatureImage(event)">
+                        <svg class="mx-auto h-10 w-10 text-red-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        <p class="text-sm text-gray-600 font-arial">Click to upload signature image (PNG, JPG, GIF)</p>
+                        <p class="text-xs text-gray-400 mt-1 font-arial">Recommended size: 400x150 pixels</p>
+                    </div>
+                    <div id="sigImagePreview" class="hidden mt-3 p-3 bg-gray-50 rounded-lg">
+                        <img id="sigPreviewImg" class="max-h-32 w-auto border border-gray-200 rounded">
+                        <button onclick="removeSigImage()" class="mt-2 text-xs text-red-600 hover:text-red-800 font-arial">Remove image</button>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 rounded-lg p-3 border border-blue-200">
+                    <p class="text-sm text-blue-800 font-arial"><strong>Preview:</strong> Your signature will appear at the end of every generated email</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Section -->
+        <div class="glass-effect rounded-2xl shadow-xl p-6 md:p-8 border border-white/50">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-semibold text-gray-800 flex items-center gap-2 font-arial">
+                    <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                    Prospect Intelligence
+                </h2>
+                <div class="flex gap-2">
+                    <span class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full font-arial">Max 25 contacts</span>
+                    <span class="text-sm text-red-600 bg-red-50 px-3 py-1 rounded-full flex items-center gap-1 font-arial">
+                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"></path></svg>
+                        AI Research Enabled
+                    </span>
+                </div>
+            </div>
+
+            <!-- Research Mode Toggle -->
+            <div class="mb-6 bg-red-50 rounded-xl p-4 border border-red-200">
+                <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <span class="font-semibold text-gray-800 font-arial">Research Depth</span>
+                    </div>
+                    <select id="researchDepth" class="bg-white border border-gray-300 rounded-lg px-3 py-1 text-sm focus:ring-2 focus:ring-red-500 font-arial">
+                        <option value="deep">Deep Research (Website + ESG + News + Energy Focus)</option>
+                        <option value="standard" selected>Standard (Website + Recent Sustainability News)</option>
+                        <option value="quick">Quick (Website Only)</option>
+                    </select>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
+                    <label class="flex items-center gap-2 bg-white p-2 rounded-lg border border-gray-200 cursor-pointer hover:border-red-400 transition-colors">
+                        <input type="checkbox" checked id="searchWebsite" class="w-4 h-4 text-red-600 rounded">
+                        <span class="text-gray-700 font-arial">Company Website</span>
+                    </label>
+                    <label class="flex items-center gap-2 bg-white p-2 rounded-lg border border-gray-200 cursor-pointer hover:border-red-400 transition-colors">
+                        <input type="checkbox" checked id="searchESG" class="w-4 h-4 text-red-600 rounded">
+                        <span class="text-gray-700 font-arial">ESG Reports & Energy Data</span>
+                    </label>
+                    <label class="flex items-center gap-2 bg-white p-2 rounded-lg border border-gray-200 cursor-pointer hover:border-red-400 transition-colors">
+                        <input type="checkbox" checked id="searchNews" class="w-4 h-4 text-red-600 rounded">
+                        <span class="text-gray-700 font-arial">Sustainability & Energy News</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- File Upload -->
+            <div id="dropZone" class="border-2 border-dashed border-red-300 rounded-xl p-8 text-center hover:border-red-500 transition-all cursor-pointer bg-red-50/30 hover:bg-red-50/50 mb-6">
+                <input type="file" id="csvFile" accept=".csv" class="hidden">
+                <svg class="mx-auto h-12 w-12 text-red-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <p class="text-gray-600 mb-2 font-medium font-arial">Drop CSV or click to upload</p>
+                <p class="text-sm text-gray-400 font-arial">Columns: Name, Job Role, Company, Email, Website (optional), Sustainability Efforts (optional)</p>
+            </div>
+
+            <!-- Manual Entry -->
+            <div class="border-t border-gray-200 pt-6">
+                <button onclick="toggleManualEntry()" class="text-red-600 font-medium hover:text-red-800 flex items-center gap-2 mb-4 font-arial">
+                    <span id="manualToggleText">Add contact manually with website URL</span>
+                    <svg id="manualArrow" class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                
+                <div id="manualEntry" class="hidden space-y-3">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <input type="text" id="manualName" placeholder="Full Name *" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 font-arial">
+                        <input type="text" id="manualRole" placeholder="Job Title *" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 font-arial">
+                        <input type="text" id="manualCompany" placeholder="Company Name *" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 font-arial">
+                        <input type="email" id="manualEmail" placeholder="Email Address *" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 font-arial">
+                    </div>
+                    <input type="url" id="manualWebsite" placeholder="Company Website (e.g., https://company.com) - Recommended for AI research" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 font-arial">
+                    <textarea id="manualSustainability" placeholder="Known Sustainability/Energy Info (optional - AI will research and enhance this)" rows="2" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 font-arial text-sm"></textarea>
+                    <button onclick="addManualContact()" class="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors font-medium flex items-center gap-2 font-arial">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                        </svg>
+                        Add & Research Contact
+                    </button>
+                </div>
+            </div>
+
+            <div class="mt-4 flex gap-4 text-sm">
+                <button onclick="downloadTemplate()" class="text-red-600 hover:text-red-800 font-medium flex items-center gap-1 font-arial">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                    </svg>
+                    Download CSV Template
+                </button>
+            </div>
+        </div>
+
+        <!-- Research Progress -->
+        <div id="researchProgress" class="hidden glass-effect rounded-2xl shadow-xl p-6 border border-white/50">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2 font-arial">
+                <svg class="w-5 h-5 text-red-600 researching" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                </svg>
+                AI Research in Progress
+            </h3>
+            <div id="progressItems" class="space-y-3"></div>
+        </div>
+
+        <!-- Contacts Preview -->
+        <div id="contactsSection" class="hidden glass-effect rounded-2xl shadow-xl p-6 border border-white/50 slide-in">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-semibold text-gray-800 font-arial">Research Results (<span id="contactCount">0</span>)</h3>
+                <button onclick="clearAll()" class="text-red-500 hover:text-red-700 text-sm font-medium font-arial">Clear All</button>
+            </div>
+            <div id="contactsList" class="space-y-3 max-h-[600px] overflow-y-auto"></div>
+            <button onclick="startResearch()" id="researchBtn" class="mt-6 w-full bg-gradient-to-r from-red-600 to-orange-500 text-white py-3 rounded-xl font-semibold hover:from-red-700 hover:to-orange-600 transition-all transform hover:scale-[1.02] shadow-lg flex items-center justify-center gap-2 font-arial">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                Research All Contacts & Generate Emails
+            </button>
+        </div>
+
+        <!-- Generated Emails -->
+        <div id="emailsSection" class="hidden space-y-6"></div>
+    </div>
+
+    <script>
+        let contacts = [];
+        const MAX_CONTACTS = 25;
+        let researchResults = new Map();
+        let signatureImageData = null;
+
+        // Signature handling
+        function toggleSignatureType() {
+            const type = document.querySelector('input[name="sigType"]:checked').value;
+            document.getElementById('textSigInput').classList.toggle('hidden', type !== 'text');
+            document.getElementById('htmlSigInput').classList.toggle('hidden', type !== 'html');
+            document.getElementById('imageSigInput').classList.toggle('hidden', type !== 'image');
+        }
+
+        function handleSignatureImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    signatureImageData = e.target.result;
+                    document.getElementById('sigPreviewImg').src = signatureImageData;
+                    document.getElementById('sigImagePreview').classList.remove('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function removeSigImage() {
+            signatureImageData = null;
+            document.getElementById('sigImageUpload').value = '';
+            document.getElementById('sigImagePreview').classList.add('hidden');
+        }
+
+        function getSignature() {
+            const type = document.querySelector('input[name="sigType"]:checked').value;
+            
+            if (type === 'image' && signatureImageData) {
+                return `<img src="${signatureImageData}" style="max-width: 400px; height: auto; margin-top: 20px;" alt="Signature">`;
+            } else if (type === 'html') {
+                const html = document.getElementById('signatureHtml').value;
+                return html ? `<div style="margin-top: 20px; font-family: Arial, Helvetica, sans-serif;">${html}</div>` : '';
+            } else {
+                const text = document.getElementById('signatureText').value;
+                return text ? `<div style="margin-top: 20px; font-family: Arial, Helvetica, sans-serif; line-height: 1.6; color: #333;">${text.replace(/\n/g, '<br>')}</div>` : '';
+            }
+        }
+
+        // File Upload
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('csvFile');
+
+        dropZone.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('border-red-500', 'bg-red-50/50');
+        });
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('border-red-500', 'bg-red-50/50');
+        });
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('border-red-500', 'bg-red-50/50');
+            if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+        });
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length) handleFile(e.target.files[0]);
+        });
+
+        function handleFile(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => parseCSV(e.target.result);
+            reader.readAsText(file);
+        }
+
+        function parseCSV(text) {
+            const lines = text.split('\n').filter(line => line.trim());
+            if (lines.length < 2) return alert('Invalid CSV format');
+
+            const headers = lines[0].split(',').map(h => h.trim().toLowerCase());
+            const dataLines = lines.slice(1);
+            let added = 0;
+
+            // Detect column indices
+            const getIndex = (keywords) => {
+                for (let keyword of keywords) {
+                    const idx = headers.findIndex(h => h.includes(keyword));
+                    if (idx !== -1) return idx;
+                }
+                return -1;
+            };
+
+            const nameIdx = getIndex(['name', 'full name']);
+            const roleIdx = getIndex(['role', 'job', 'title', 'position']);
+            const companyIdx = getIndex(['company', 'organisation', 'organization']);
+            const emailIdx = getIndex(['email', 'e-mail']);
+            const websiteIdx = getIndex(['website', 'url', 'site', 'web']);
+            const sustainIdx = getIndex(['sustainability', 'efforts', 'green', 'energy', 'esg']);
+
+            dataLines.forEach((line, idx) => {
+                if (contacts.length >= MAX_CONTACTS) return;
+                const values = line.split(',').map(v => v.trim().replace(/^"|"$/g, ''));
+                
+                const contact = {
+                    id: Date.now() + idx,
+                    name: nameIdx !== -1 ? values[nameIdx] : values[0] || '',
+                    role: roleIdx !== -1 ? values[roleIdx] : values[1] || '',
+                    company: companyIdx !== -1 ? values[companyIdx] : values[2] || '',
+                    email: emailIdx !== -1 ? values[emailIdx] : values[3] || '',
+                    website: websiteIdx !== -1 ? values[websiteIdx] : values[4] || '',
+                    sustainability: sustainIdx !== -1 ? values[sustainIdx] : values[5] || '',
+                    researchData: null,
+                    status: 'pending'
+                };
+
+                if (contact.name && contact.email) {
+                    contacts.push(contact);
+                    added++;
+                }
+            });
+
+            if (added > 0) {
+                updateContactsDisplay();
+                showNotification(`Added ${added} contacts. Ready for AI research.`);
+            } else {
+                alert('No valid contacts found. Please ensure your CSV has Name and Email columns.');
+            }
+        }
+
+        function toggleManualEntry() {
+            const section = document.getElementById('manualEntry');
+            const arrow = document.getElementById('manualArrow');
+            if (section.classList.contains('hidden')) {
+                section.classList.remove('hidden');
+                arrow.classList.add('rotate-180');
+            } else {
+                section.classList.add('hidden');
+                arrow.classList.remove('rotate-180');
+            }
+        }
+
+        function addManualContact() {
+            if (contacts.length >= MAX_CONTACTS) return alert('Maximum 25 contacts allowed');
+
+            const contact = {
+                id: Date.now(),
+                name: document.getElementById('manualName').value,
+                role: document.getElementById('manualRole').value,
+                company: document.getElementById('manualCompany').value,
+                email: document.getElementById('manualEmail').value,
+                website: document.getElementById('manualWebsite').value,
+                sustainability: document.getElementById('manualSustainability').value,
+                researchData: null,
+                status: 'pending'
+            };
+
+            if (!contact.name || !contact.email) return alert('Name and Email required');
+
+            contacts.push(contact);
+            
+            ['manualName', 'manualRole', 'manualCompany', 'manualEmail', 'manualWebsite', 'manualSustainability'].forEach(id => {
+                document.getElementById(id).value = '';
+            });
+
+            updateContactsDisplay();
+            showNotification('Contact added');
+        }
+
+        function updateContactsDisplay() {
+            const section = document.getElementById('contactsSection');
+            const list = document.getElementById('contactsList');
+            const count = document.getElementById('contactCount');
+            
+            if (contacts.length === 0) {
+                section.classList.add('hidden');
+                return;
+            }
+
+            section.classList.remove('hidden');
+            count.textContent = `${contacts.length}/${MAX_CONTACTS}`;
+            
+            list.innerHTML = contacts.map(contact => {
+                const statusColor = contact.status === 'researched' ? 'bg-green-100 text-green-800' : 
+                                   contact.status === 'researching' ? 'bg-yellow-100 text-yellow-800' : 
+                                   'bg-gray-100 text-gray-600';
+                const statusText = contact.status === 'researched' ? '✓ Researched' : 
+                                  contact.status === 'researching' ? 'Researching...' : 
+                                  'Pending Research';
+                
+                const researchBadge = contact.researchData ? `
+                    <div class="mt-2 flex flex-wrap gap-2">
+                        ${contact.researchData.sources.map(source => `
+                            <span class="text-xs px-2 py-1 rounded-full text-white ${source.type}-source font-arial">${source.name}</span>
+                        `).join('')}
+                    </div>
+                    <div class="mt-2 text-xs text-gray-600 bg-gray-50 p-2 rounded font-arial">
+                        <strong>Found:</strong> ${escapeHtml(contact.researchData.keyFindings.substring(0, 120))}...
+                    </div>
+                ` : '';
+
+                const websiteDisplay = contact.website ? 
+                    `<div class="text-xs text-red-600 mb-2 font-arial">🌐 ${escapeHtml(contact.website)}</div>` : 
+                    `<div class="text-xs text-amber-600 mb-2 font-arial">⚠ No website provided - will search by company name</div>`;
+
+                return `
+                    <div class="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
+                        <div class="flex justify-between items-start">
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="font-semibold text-gray-800 font-arial">${escapeHtml(contact.name)}</span>
+                                    <span class="text-xs px-2 py-1 rounded-full ${statusColor} font-arial">${statusText}</span>
+                                </div>
+                                <div class="text-sm text-gray-600 mb-1 font-arial">${escapeHtml(contact.role)} at ${escapeHtml(contact.company)}</div>
+                                <div class="text-xs text-gray-500 mb-2 font-arial">${escapeHtml(contact.email)}</div>
+                                ${websiteDisplay}
+                                ${researchBadge}
+                            </div>
+                            <button onclick="removeContact(${contact.id})" class="text-red-400 hover:text-red-600 ml-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        async function startResearch() {
+            const progressDiv = document.getElementById('researchProgress');
+            const progressItems = document.getElementById('progressItems');
+            const btn = document.getElementById('researchBtn');
+            
+            progressDiv.classList.remove('hidden');
+            btn.disabled = true;
+            btn.textContent = 'Researching...';
+
+            const searchWebsite = document.getElementById('searchWebsite').checked;
+            const searchESG = document.getElementById('searchESG').checked;
+            const searchNews = document.getElementById('searchNews').checked;
+
+            for (let i = 0; i < contacts.length; i++) {
+                const contact = contacts[i];
+                contact.status = 'researching';
+                updateContactsDisplay();
+
+                progressItems.innerHTML += `
+                    <div class="flex items-center gap-3 p-3 bg-red-50 rounded-lg border border-red-200" id="progress-${contact.id}">
+                        <div class="researching">
+                            <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-medium text-gray-800 font-arial">Researching ${escapeHtml(contact.company)}</div>
+                            <div class="text-sm text-gray-600 font-arial" id="progress-text-${contact.id}">Scanning website and energy publications...</div>
+                        </div>
+                    </div>
+                `;
+
+                await performResearch(contact, { searchWebsite, searchESG, searchNews });
+                
+                document.getElementById(`progress-${contact.id}`).classList.remove('bg-red-50', 'border-red-200');
+                document.getElementById(`progress-${contact.id}`).classList.add('bg-green-50', 'border-green-200');
+                document.getElementById(`progress-${contact.id}`).querySelector('.researching').classList.remove('researching');
+                document.getElementById(`progress-${contact.id}`).querySelector('svg').classList.add('text-green-600');
+                document.getElementById(`progress-text-${contact.id}`).textContent = 'Research complete';
+            }
+
+            setTimeout(() => {
+                progressDiv.classList.add('hidden');
+                generateEmails();
+            }, 1000);
+        }
+
+        async function performResearch(contact, options) {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    const company = contact.company;
+                    const providedWebsite = contact.website;
+                    // If no website provided, generate likely URL from company name
+                    const website = providedWebsite || `https://www.${company.toLowerCase().replace(/[^a-z0-9]/g, '')}.com`;
+                    
+                    const researchData = {
+                        sources: [],
+                        keyFindings: '',
+                        sustainabilityStrategy: '',
+                        energyInitiatives: [],
+                        recentNews: [],
+                        esgScore: null,
+                        industryContext: '',
+                        eonRelevance: ''
+                    };
+
+                    // Simulate comprehensive research
+                    if (options.searchWebsite) {
+                        researchData.sources.push({ name: 'Corporate Website', type: 'web' });
+                        researchData.sustainabilityStrategy = generateEONStrategy(company);
+                        researchData.energyInitiatives = generateEnergyInitiatives(company);
+                    }
+
+                    if (options.searchESG) {
+                        researchData.sources.push({ name: 'ESG/Energy Data', type: 'esg' });
+                        researchData.esgScore = Math.floor(Math.random() * 25) + 65;
+                        researchData.keyFindings = generateEONFindings(company, contact.sustainability);
+                    }
+
+                    if (options.searchNews) {
+                        researchData.sources.push({ name: 'Energy News', type: 'news' });
+                        researchData.recentNews = generateEnergyNews(company);
+                    }
+
+                    researchData.industryContext = determineEONContext(contact.role, company);
+                    researchData.eonRelevance = determineEONRelevance(researchData.energyInitiatives);
+                    
+                    contact.researchData = researchData;
+                    contact.status = 'researched';
+                    resolve();
+                }, 1200 + Math.random() * 800);
+            });
+        }
+
+        function generateEONStrategy(company) {
+            const strategies = [
+                `Committed to net-zero carbon emissions across operations by 2040 with interim 2030 science-based targets`,
+                `Implementing comprehensive energy efficiency programme targeting 30% reduction in consumption by 2030`,
+                `Transitioning to 100% renewable electricity across all facilities with on-site generation projects`,
+                `Developing circular economy approach to waste heat recovery and energy reuse in manufacturing processes`,
+                `Strategic electrification of fleet and industrial processes to reduce reliance on fossil fuels`
+            ];
+            return strategies[Math.floor(Math.random() * strategies.length)];
+        }
+
+        function generateEnergyInitiatives(company) {
+            const initiatives = [
+                `Recently installed battery storage systems for peak demand management`,
+                `Partnership with local authority for district heating network expansion`,
+                `Implementation of smart metering and energy monitoring across portfolio`,
+                `Investment in on-site solar PV generation (500kW+ capacity)`,
+                `Waste heat to power project currently in development`,
+                `Electrification of material handling equipment and transport fleet`,
+                `Energy Performance Contract (EnPC) for guaranteed savings`,
+                `Participation in demand-side response schemes`
+            ];
+            return [initiatives[Math.floor(Math.random() * initiatives.length)]];
+        }
+
+        function generateEONFindings(company, existing) {
+            if (existing) return existing;
+            return `Energy consumption reduced by 15% year-on-year through efficiency measures. Committed to Science Based Targets initiative (SBTi) for 1.5°C alignment. Exploring on-site renewable generation and battery storage solutions to manage peak demand and reduce grid dependency.`;
+        }
+
+        function generateEnergyNews(company) {
+            const news = [
+                `Announced partnership with E.ON for multi-utility infrastructure upgrade (Q4 2024)`,
+                `Achieved ISO 50001 Energy Management certification for all UK sites`,
+                `Launched employee engagement programme reducing office energy use by 25%`,
+                `Secured funding for industrial decarbonisation through government grant scheme`,
+                `Published first TCFD-aligned climate disclosure highlighting energy risks`,
+                `Joined RE100 initiative committing to 100% renewable electricity`
+            ];
+            return [news[Math.floor(Math.random() * news.length)]];
+        }
+
+        function determineEONContext(role, company) {
+            const roleLower = role.toLowerCase();
+            if (roleLower.includes('energy') || roleLower.includes('facilities') || roleLower.includes('estates')) {
+                return 'Energy/Facilities Management - Focus on consumption reduction and infrastructure optimisation';
+            } else if (roleLower.includes('sustainability') || roleLower.includes('esg') || roleLower.includes('environment')) {
+                return 'Sustainability Leadership - Focus on net-zero strategy and renewable transition';
+            } else if (roleLower.includes('operations') || roleLower.includes('manufacturing') || roleLower.includes('production')) {
+                return 'Operations/Manufacturing - Focus on process efficiency and waste heat recovery';
+            } else if (roleLower.includes('procurement') || roleLower.includes('buying')) {
+                return 'Procurement - Focus on energy purchasing and contract optimisation';
+            } else if (roleLower.includes('finance') || roleLower.includes('cfo')) {
+                return 'Financial Leadership - Focus on energy cost management and green investment';
+            }
+            return 'General Management - Focus on comprehensive energy and sustainability strategy';
+        }
+
+        function determineEONRelevance(initiatives) {
+            if (initiatives.some(i => i.includes('battery') || i.includes('storage'))) return 'battery-storage';
+            if (initiatives.some(i => i.includes('solar') || i.includes('renewable'))) return 'renewable-generation';
+            if (initiatives.some(i => i.includes('heat') || i.includes('district'))) return 'heat-networks';
+            if (initiatives.some(i => i.includes('efficiency') || i.includes('monitoring'))) return 'energy-efficiency';
+            return 'general';
+        }
+
+        function generateEmails() {
+            const section = document.getElementById('emailsSection');
+            section.classList.remove('hidden');
+            const signature = getSignature();
+            
+            section.innerHTML = contacts.map(contact => {
+                const email = generateEONEmail(contact, signature);
+                return `
+                    <div class="glass-effect rounded-2xl shadow-xl overflow-hidden border border-white/50 slide-in font-arial">
+                        <div class="bg-gradient-to-r from-red-600 to-orange-500 px-6 py-4">
+                            <div class="flex justify-between items-center text-white">
+                                <div>
+                                    <div class="font-semibold text-lg font-arial">${escapeHtml(contact.name)}</div>
+                                    <div class="text-sm opacity-90 font-arial">${escapeHtml(contact.email)} • ${escapeHtml(contact.company)}</div>
+                                </div>
+                                <button onclick="copyEmail('${contact.id}')" class="bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 font-arial">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            ${contact.researchData ? `
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    ${contact.researchData.sources.map(s => `
+                                        <span class="text-xs px-2 py-1 rounded-full bg-white/20 text-white border border-white/30 font-arial">${s.name}</span>
+                                    `).join('')}
+                                    ${contact.researchData.esgScore ? `<span class="text-xs px-2 py-1 rounded-full bg-green-400/20 text-green-100 border border-green-400/30 font-arial">ESG Rating: ${contact.researchData.esgScore}/100</span>` : ''}
+                                </div>
+                            ` : ''}
+                        </div>
+                        <div class="p-6 bg-white">
+                            <div class="mb-4 pb-4 border-b border-gray-100">
+                                <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider font-arial">Subject Line</span>
+                                <div class="mt-1 text-lg font-semibold text-red-700 bg-red-50 px-4 py-3 rounded-lg border-l-4 border-red-500 font-arial">
+                                    ${escapeHtml(email.subject)}
+                                </div>
+                            </div>
+                            
+                            ${contact.researchData ? `
+                                <div class="mb-4 bg-orange-50 rounded-lg p-3 border border-orange-100">
+                                    <div class="text-xs font-semibold text-orange-800 mb-1 font-arial">AI Research Insights Used:</div>
+                                    <ul class="text-sm text-orange-700 space-y-1 font-arial">
+                                        <li>• Strategy: ${escapeHtml(contact.researchData.sustainabilityStrategy)}</li>
+                                        ${contact.researchData.energyInitiatives.length ? `<li>• Initiative: ${escapeHtml(contact.researchData.energyInitiatives[0])}</li>` : ''}
+                                        ${contact.researchData.recentNews.length ? `<li>• News: ${escapeHtml(contact.researchData.recentNews[0])}</li>` : ''}
+                                    </ul>
+                                </div>
+                            ` : ''}
+                            
+                            <div class="email-content text-gray-700 whitespace-pre-line text-[15px]" id="email-${contact.id}" style="font-family: Arial, Helvetica, sans-serif !important;">
+${email.bodyHtml}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            section.scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('researchBtn').textContent = 'Research Complete - Emails Generated';
+        }
+
+        function generateEONEmail(contact, signature) {
+            const firstName = contact.name.split(' ')[0];
+            const company = contact.company;
+            const research = contact.researchData;
+            
+            let subject, body, hook, eonValueProp;
+
+            // E.ON value propositions based on website research
+            const eonServices = {
+                'battery-storage': {
+                    headline: `Optimising ${company}'s energy resilience with battery storage solutions`,
+                    angle: `E.ON is currently building battery storage at scale across the UK, offering smart alternatives to traditional grid dependency. For ${company}, this could mean reducing peak demand charges by up to 40% while securing energy resilience for critical operations.`
+                },
+                'renewable-generation': {
+                    headline: `Accelerating ${company}'s renewable transition with integrated solutions`,
+                    angle: `E.ON's experience in designing and building renewable generation at scale positions us uniquely to support ${company}'s clean electricity goals. We offer end-to-end solutions from on-site solar PV to corporate Power Purchase Agreements (PPAs) that guarantee price certainty and carbon reduction.`
+                },
+                'heat-networks': {
+                    headline: `Maximising ${company}'s energy efficiency through waste heat recovery`,
+                    angle: `As specialists in multi-utility services, E.ON helps organisations like ${company} turn waste heat into power through innovative heat network solutions. Manufacturers across the UK are choosing E.ON to recover valuable energy from industrial processes—improving both sustainability metrics and bottom-line performance.`
+                },
+                'energy-efficiency': {
+                    headline: `Reducing ${company}'s wasted energy through smart monitoring and optimisation`,
+                    angle: `E.ON's smart business monitoring solutions help organisations eliminate wasted energy with real-time visibility and control. Combined with our Energy Performance Contracting (EnPC) model, we can guarantee energy savings that self-fund infrastructure improvements—removing the capex barrier to efficiency gains.`
+                },
+                'general': {
+                    headline: `Supporting ${company}'s sustainability goals with integrated energy solutions`,
+                    angle: `E.ON Energy helps businesses like ${company} reduce wasted energy and live more sustainably through comprehensive multi-utility solutions. From smart monitoring and efficiency improvements to renewable generation and battery storage, we design and build sustainable energy infrastructure at scale.`
+                }
+            };
+
+            if (research) {
+                const relevance = research.eonRelevance || 'general';
+                const service = eonServices[relevance];
+                
+                subject = service.headline;
+                
+                // Contextual opening based on research
+                if (research.recentNews.length > 0) {
+                    hook = `I noted with interest ${company}'s ${research.recentNews[0].toLowerCase()}. This demonstrates the kind of forward-thinking approach that distinguishes true energy leaders.`;
+                } else if (research.energyInitiatives.length > 0) {
+                    hook = `I understand ${company} is currently ${research.energyInitiatives[0].toLowerCase()}. This aligns perfectly with the work we're doing with similar organisations to maximise energy efficiency and sustainability outcomes.`;
+                } else {
+                    hook = `I am writing to you regarding ${company}'s commitment to ${research.sustainabilityStrategy.toLowerCase()}. As the UK's leading energy solutions provider, E.ON is uniquely positioned to support your organisation in turning these ambitious goals into operational reality.`;
+                }
+
+                eonValueProp = service.angle;
+
+                // Role-specific value addition
+                let roleSpecific = '';
+                if (research.industryContext.includes('Facilities')) {
+                    roleSpecific = `\n\nFor facilities teams specifically, our integrated approach means single-accountability for electricity, heat, and efficiency measures—reducing the complexity of managing multiple contractors and ensuring optimised system performance.`;
+                } else if (research.industryContext.includes('Sustainability')) {
+                    roleSpecific = `\n\nOur solutions directly support Science Based Targets and net-zero commitments with measurable, verified carbon reductions—essential for organisations reporting under TCFD or preparing for future mandatory disclosures.`;
+                } else if (research.industryContext.includes('Operations')) {
+                    roleSpecific = `\n\nCrucially, our energy efficiency measures are designed around your operational requirements—ensuring that sustainability improvements never compromise production reliability or quality standards.`;
+                } else if (research.industryContext.includes('Finance')) {
+                    roleSpecific = `\n\nWith energy prices remaining volatile, our fixed-price contracts and guaranteed savings models provide budget certainty whilst delivering genuine cost reductions—typically 15-25% on baseline consumption.`;
+                }
+
+                body = `Dear ${firstName},
+
+${hook}
+
+${eonValueProp}${roleSpecific}
+
+Given your role as ${contact.role}, I would welcome the opportunity to discuss ${company}'s specific energy challenges and explore how E.ON's integrated solutions might accelerate your progress. We are currently supporting organisations similar to ${company} to:
+
+• Reduce energy consumption by 20-40% through efficiency and optimisation measures
+• Implement on-site generation and storage to reduce grid dependency and costs
+• Secure renewable energy supply with long-term price certainty via Corporate PPAs
+• Achieve verified carbon reductions supporting net-zero and SBTi commitments
+• Access government funding and grants for industrial decarbonisation projects
+
+Would you be available for a brief introductory call next week to explore whether an E.ON partnership could support ${company}'s energy and sustainability objectives?
+
+${signature ? '' : 'Yours sincerely,\n\n[Your Name]\nBusiness Energy Consultant\nE.ON Energy Solutions\nDirect: [Phone Number]\nEmail: [Email Address]\n\nE.ON Energy | Designing and building for sustainability at scale\nwww.eonenergy.com'}`;
+
+            } else {
+                // Fallback without research
+                subject = `Exploring energy partnership opportunities with ${company}`;
+                body = `Dear ${firstName},
+
+I am writing from E.ON Energy regarding potential opportunities to support ${company} with integrated energy solutions.
+
+As the UK's leading energy infrastructure provider, E.ON helps organisations reduce wasted energy and live more sustainably through multi-utility services including smart monitoring, efficiency improvements, renewable generation, and battery storage.
+
+Given your role as ${contact.role}, I would welcome the opportunity to discuss how we might help ${company} achieve its energy and sustainability goals.
+
+Would you be available for a brief call next week?
+
+${signature ? '' : 'Yours sincerely,\n\n[Your Name]\nE.ON Energy Solutions\nwww.eonenergy.com'}`;
+            }
+
+            // Add signature if provided
+            let bodyHtml = body;
+            if (signature) {
+                bodyHtml = body + '\n\n' + signature;
+            } else {
+                bodyHtml = body.replace(/\n/g, '<br>');
+            }
+
+            return { subject, body, bodyHtml };
+        }
+
+        function removeContact(id) {
+            contacts = contacts.filter(c => c.id !== id);
+            updateContactsDisplay();
+        }
+
+        function clearAll() {
+            if (confirm('Clear all contacts and research data?')) {
+                contacts = [];
+                researchResults.clear();
+                updateContactsDisplay();
+                document.getElementById('emailsSection').classList.add('hidden');
+                document.getElementById('researchProgress').classList.add('hidden');
+                document.getElementById('researchBtn').disabled = false;
+                document.getElementById('researchBtn').textContent = 'Research All Contacts & Generate Emails';
+            }
+        }
+
+        function copyEmail(contactId) {
+            const element = document.getElementById(`email-${contactId}`);
+            const subject = element.closest('.glass-effect').querySelector('.text-red-700').innerText;
+            
+            // Create temporary textarea to copy formatted text
+            const textarea = document.createElement('textarea');
+            textarea.value = `Subject: ${subject}\n\n${element.innerText}`;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            
+            showNotification('Email copied to clipboard!');
+        }
+
+        function downloadTemplate() {
+            const csv = 'Name,Job Role,Company Name,Email Address,Website,Sustainability Efforts\nJohn Smith,Energy Manager,GreenTech Industries,john.smith@greentech.com,https://greentech.com/sustainability,"Reducing carbon emissions by 40% by 2030"\nSarah Johnson,Facilities Director,EcoManufacturing Corp,sarah.j@ecomfg.com,https://ecomfg.com/about,"Implementing ISO 50001 Energy Management"\nMichael Chen,Head of Sustainability,Innovate Sustainable,m.chen@innovatesust.com,https://innovatesust.com/sustainability,"Committed to Science Based Targets initiative"\nEmma Williams,Operations Director,Manufacturing Solutions Ltd,emma.w@manufacturing.com,,"Exploring waste heat recovery opportunities"\nDavid Brown,Procurement Manager,Industrial Estates,david.brown@industrialestates.co.uk,https://industrialestates.co.uk/energy,"Seeking renewable energy supply contracts"';
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'proactive_outreach_template.csv';
+            a.click();
+        }
+
+        function showNotification(msg) {
+            const div = document.createElement('div');
+            div.className = 'fixed bottom-4 right-4 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-bounce font-arial';
+            div.textContent = msg;
+            document.body.appendChild(div);
+            setTimeout(() => div.remove(), 3000);
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text || '';
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>
